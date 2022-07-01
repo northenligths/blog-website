@@ -6,7 +6,6 @@ import Moment from "react-moment";
 
 const Blog = () => {
   const location = useLocation();
-  console.log("location", location.state);
 
   return (
     <div className="blog">

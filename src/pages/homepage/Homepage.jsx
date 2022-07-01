@@ -16,7 +16,7 @@ const Homepage = () => {
 
     try {
       const response = await axios.get(url);
-      // console.log("response", response.data.results);
+
       setJobs(response.data.results);
       setLoading(false);
     } catch (error) {
