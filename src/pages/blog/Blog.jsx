@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../../components/header/Header";
 import Search from "../../components/search/Search";
 import { useLocation } from "react-router-dom";
-import Moment from "react-moment";
 
 const Blog = () => {
   const location = useLocation();
@@ -19,9 +18,7 @@ const Blog = () => {
           className="border rounded-lg"
         />
         <p className="font-bold px-5 text-xl py-4">{location?.state?.title}</p>
-        <p className="font-bold px-5 text-xl py-2">
-          <Moment format="YYYY/MM/DD">{location?.state?.created}</Moment>
-        </p>
+        <p className="font-bold px-5 text-xl py-2">{location?.state?.date}</p>
         <p className="px-5 text-lg">{location?.state?.description}</p>
       </div>
     </div>

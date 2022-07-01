@@ -1,47 +1,69 @@
-import React, { useEffect, useState } from "react";
 import Header from "../../components/header/Header";
 import Search from "../../components/search/Search";
-import axios from "axios";
-import { Oval } from "react-loader-spinner";
 import Footer from "../../components/footer/Footer";
 import Blogs from "../../components/blogs/Blogs";
 
 const Homepage = () => {
-  const [jobs, setJobs] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const fetchJobs = async () => {
-    const url =
-      "https://api.adzuna.com/v1/api/jobs/au/search/1?app_id=10b7f966&app_key=9dcbb5915ae132c29dc44579e89efdc5";
-
-    try {
-      const response = await axios.get(url);
-
-      setJobs(response.data.results);
-      setLoading(false);
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchJobs();
-  }, []);
+  const data = [
+    {
+      id: 1,
+      title: "Title One",
+      date: "10/6/22",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti",
+    },
+    {
+      id: 2,
+      title: "Title Two",
+      date: "11/6/22",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti",
+    },
+    {
+      id: 3,
+      title: "Title Four",
+      date: "12/6/22",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti",
+    },
+    {
+      id: 4,
+      title: "Title Five",
+      date: "13/6/22",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti",
+    },
+    {
+      id: 5,
+      title: "Title Five",
+      date: "14/6/22",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti",
+    },
+    {
+      id: 6,
+      title: "Title Six",
+      date: "15/6/22",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti",
+    },
+    {
+      id: 7,
+      title: "Title Seven",
+      date: "16/6/22",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitiLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime molliti",
+    },
+  ];
 
   return (
     <>
       <Header />
       <Search />
 
-      {loading ? (
-        <div className="flex justify-center">
-          <Oval color="#202942" />
-        </div>
-      ) : (
-        <div className="grid gap-y-1 grid-cols-1 md:grid-cols-3 md:px-36">
-          <Blogs jobs={jobs} />
-        </div>
-      )}
+      <div className="grid gap-y-1 grid-cols-1 md:grid-cols-3 md:px-36">
+        <Blogs data={data} />
+      </div>
 
       <Footer />
     </>

@@ -1,14 +1,13 @@
 import React from "react";
 import { BsCalendar3 } from "react-icons/bs";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import Moment from "react-moment";
 import { useNavigate } from "react-router-dom";
 
-const Blogs = ({ jobs }) => {
+const Blogs = ({ jobs, data }) => {
   const navigate = useNavigate();
   return (
     <>
-      {jobs?.map((job, i) => {
+      {data?.map((item, i) => {
         return (
           <div className="md:flex items-center justify-center">
             <div className="border rounded-xl mx-2 " key={i}>
@@ -18,16 +17,15 @@ const Blogs = ({ jobs }) => {
                 className="blogImage rounded-md"
               />
               <div className="blogContent py-4 pl-4 pr-8">
-                <p className="text-xl font-bold leading-8">{job?.title}</p>
+                <p className="text-xl font-bold leading-8">{item?.title}</p>
                 <div className="date flex items-center justify-between py-6">
                   <div className="calendar flex items-center gap-3">
-                    <BsCalendar3 />{" "}
-                    <Moment format="YYYY/MM/DD">{job?.created}</Moment>
+                    <BsCalendar3 /> {item.date}
                   </div>
                   <div
                     className="readLink flex items-center gap-1  cursor-pointer"
                     onClick={() =>
-                      navigate(`/blog:${job.title}`, { state: job })
+                      navigate(`/blog:${item.title}`, { state: item })
                     }
                   >
                     Start Reading <MdKeyboardArrowRight className="text-xl" />
