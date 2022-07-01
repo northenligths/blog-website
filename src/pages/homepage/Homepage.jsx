@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Blog from "../../components/blog/Blog";
 import Header from "../../components/header/Header";
 import Search from "../../components/search/Search";
 import axios from "axios";
 import { Oval } from "react-loader-spinner";
 import Footer from "../../components/footer/Footer";
+import Blogs from "../../components/blogs/Blogs";
 
 const Homepage = () => {
   const [jobs, setJobs] = useState([]);
@@ -35,11 +35,11 @@ const Homepage = () => {
 
       {loading ? (
         <div className="flex justify-center">
-          <Oval className="" />
+          <Oval color="#202942" />
         </div>
       ) : (
         <div className="grid gap-y-1 grid-cols-1 md:grid-cols-3 md:px-36">
-          <Blog jobs={jobs} />
+          <Blogs jobs={jobs} />
         </div>
       )}
 
