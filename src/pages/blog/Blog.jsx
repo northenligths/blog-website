@@ -18,11 +18,11 @@ const Blog = () => {
           alt=""
           className="border rounded-lg"
         />
-        <p className="font-bold px-5 text-xl py-4">{location.state.title}</p>
+        <p className="font-bold px-5 text-xl py-4">{location?.state?.title}</p>
         <p className="font-bold px-5 text-xl py-2">
-          <Moment format="YYYY/MM/DD">{location.state.created}</Moment>
+          <Moment format="YYYY/MM/DD">{location?.state?.created}</Moment>
         </p>
-        <p className="px-5 text-lg">{location.state.description}</p>
+        <p className="px-5 text-lg">{location?.state?.description}</p>
       </div>
     </div>
   );

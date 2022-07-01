@@ -18,11 +18,11 @@ const Blogs = ({ jobs }) => {
                 className="blogImage rounded-md"
               />
               <div className="blogContent py-4 pl-4 pr-8">
-                <p className="text-xl font-bold leading-8">{job.title}</p>
+                <p className="text-xl font-bold leading-8">{job?.title}</p>
                 <div className="date flex items-center justify-between py-6">
                   <div className="calendar flex items-center gap-3">
                     <BsCalendar3 />{" "}
-                    <Moment format="YYYY/MM/DD">{job.created}</Moment>
+                    <Moment format="YYYY/MM/DD">{job?.created}</Moment>
                   </div>
                   <div
                     className="readLink flex items-center gap-1  cursor-pointer"
